@@ -97,6 +97,7 @@ body {
     top: 0;
     z-index: -1;
     cursor: pointer;
+	touch-action: manipulation;
 }
 
 #text1 {
