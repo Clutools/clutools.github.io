@@ -84,6 +84,12 @@ body {
         margin-left: 10%;
 		margin-top: 10px;
     }
+	#text1 {
+		font-size: 5em;
+	}
+	#text2, #text3 {
+		font-size: 2.5em;
+	}
 }
 .modeButton:hover {
     transform: scale(1.1, 1.1);
