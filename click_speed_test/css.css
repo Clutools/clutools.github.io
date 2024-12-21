@@ -258,3 +258,7 @@ body {
 	animation-name: circle;
 	animation-duration: 1s;
 }
+
+#everything {
+	overflow: hidden;
+}
