@@ -75,6 +75,13 @@ body {
     transition: 300ms;
     border: 3px solid #0000;
 }
+@media screen and (max-width: 600px) {
+    .modeButton {
+        width: 60%;
+        margin-left: 20%;
+		margin-top: 10px;
+    }
+}
 .modeButton:hover {
     transform: scale(1.1, 1.1);
 }
