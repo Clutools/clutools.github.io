@@ -140,18 +140,18 @@ body {
 }
 .popupClose {
     position: absolute;
-    min-width: 30%;
     text-align: center;
     height: 1.5em;
     line-height: 1.5em;
     font-size: 4em;
     z-index: 3;
     background-color: #0aa;
-    left: 35%;
+    left: 25%;
     bottom: 0.5em;
     cursor: pointer;
     border-radius: 1.5em;
     transition: 300ms;
+	width: 50%;
 }
 .popupClose:hover {
     transform: scale(1.1);
