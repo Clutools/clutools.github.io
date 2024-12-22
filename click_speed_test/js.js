@@ -140,7 +140,7 @@ document.getElementById("clickCounter").addEventListener('contextmenu', function
 	summonCircle(e.clientX, e.clientY);
 }, false);
 
-var colors = ["#f00", "#0f0", "#00f", "#ff0", "#f0f", "#0ff", "#fff", "#ff0", "#ff0", "#ff0"], prevColor = "#ff0";
+var colors = ["#f00", "#0f0", "#00f", "#ff0", "#fff", "#ff0", "#ff0", "#ff0"], prevColor = "#ff0";
 
 function summonCircle(x, y) {
 	let circle = document.createElement("div");
@@ -153,7 +153,7 @@ function summonCircle(x, y) {
 		prevColor = colors[Math.floor(Math.random() * 11)];
 		circle.style.backgroundColor = prevColor;
 	}
-	console.log(colors[Math.floor(Math.random() * 11)]);
+	console.log(colors[Math.floor(Math.random() * 9)]);
 	document.getElementById("circles").appendChild(circle);
 	setTimeout(function() {
 		document.getElementById("circles").children[0].remove();
