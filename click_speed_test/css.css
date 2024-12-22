@@ -98,17 +98,6 @@ body {
     border: 3px solid var(--buttonBorder);
 }
 
-#clickCounter {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    z-index: -1;
-    cursor: pointer;
-	touch-action: manipulation;
-}
-
 #text1 {
     position: absolute;
     left: 0;
@@ -233,6 +222,18 @@ body {
     color: #055;
 }
 
+#clickCounter {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    cursor: pointer;
+	touch-action: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
 @keyframes circle {
 	0% {
 		width: 0px;
@@ -240,10 +241,10 @@ body {
         opacity: 0.08;
 	}
 	100% {
-    	margin-left: -50vh;
-        margin-top: -50vh;
-		width: 100vh;
-		height: 100vh;
+    	margin-left: -50vmin;
+        margin-top: -50vmin;
+		width: 100vmin;
+		height: 100vmin;
         opacity: 0;
 	}
 }
@@ -255,6 +256,7 @@ body {
 	left: 0px;
 	right: 0px;
 	z-index: -3;
+	overflow: hidden;
 }
 
 .circle {
@@ -263,8 +265,5 @@ body {
 	/*background-color: #ff0;*/
 	animation-name: circle;
 	animation-duration: 1s;
-}
-
-#everything {
-	overflow: hidden;
+	
 }

@@ -153,7 +153,7 @@ function summonCircle(x, y) {
 		prevColor = colors[Math.floor(Math.random() * 11)];
 		circle.style.backgroundColor = prevColor;
 	}
-	console.log(colors[Math.floor(Math.random() * 9)]);
+	console.log(colors[Math.floor(Math.random() * 8)]);
 	document.getElementById("circles").appendChild(circle);
 	setTimeout(function() {
 		document.getElementById("circles").children[0].remove();
