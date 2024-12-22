@@ -16,6 +16,15 @@ var currentCps = 0, cps1 = 0, cps2 = 0, cps3 = 0;
 // too hard to explain.
 var timeFinish, currentTime, totalTimeInSeconds;
 
+var matchMedia = window.matchMedia("(max-width: 800px)");
+matchMedia.addEventListener("change", function() {
+	if (matchMedia.matches && mode != 0) {
+		document.getElementById("text1").style.fontSize = "5em";
+	} else {
+		document.getElementById("text1").style.fontSize = "10em";
+	}
+});
+
 function modeSwitch(newMode) {
     let oldMode = mode;
     mode = newMode;
@@ -35,6 +44,11 @@ function modeSwitch(newMode) {
             document.getElementById("text1").innerHTML = "Click to Start";
             document.getElementById("text2").innerHTML = "0 clicks";
             document.getElementById("text3").innerHTML = "0 cps";
+			if (matchMedia.matches && mode != 0) {
+				document.getElementById("text1").style.fontSize = "5em";
+			} else {
+				document.getElementById("text1").style.fontSize = "10em";
+			}
             currentCps, cps1, cps2, cps3 = 0, clicks = 0, started = false;
             timeFinish = 100,  currentTime= 150, totalTimeInSeconds = 5;
             clearInterval(cpsInterval);
@@ -45,6 +59,11 @@ function modeSwitch(newMode) {
             document.getElementById("text1").innerHTML = "Click to Start";
             document.getElementById("text2").innerHTML = "0 clicks";
             document.getElementById("text3").innerHTML = "0 cps";
+			if (matchMedia.matches && mode != 0) {
+				document.getElementById("text1").style.fontSize = "5em";
+			} else {
+				document.getElementById("text1").style.fontSize = "10em";
+			}
             currentCps, cps1, cps2, cps3 = 0, clicks = 0, started = false;
             timeFinish = 1000,  currentTime= 1600, totalTimeInSeconds = 60;
             clearInterval(cpsInterval);
@@ -147,13 +166,12 @@ function summonCircle(x, y) {
 	circle.classList.add("circle");
 	circle.style.left = x + "px";
 	circle.style.top = y + "px";
-	if ((Math.random() * 3) < 1) {
+	if ((Math.random() * 2) < 1) {
 		circle.style.backgroundColor = prevColor;
 	} else {
-		prevColor = colors[Math.floor(Math.random() * 11)];
+		prevColor = colors[Math.floor(Math.random() * 8)];
 		circle.style.backgroundColor = prevColor;
 	}
-	console.log(colors[Math.floor(Math.random() * 8)]);
 	document.getElementById("circles").appendChild(circle);
 	setTimeout(function() {
 		document.getElementById("circles").children[0].remove();

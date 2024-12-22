@@ -75,22 +75,6 @@ body {
     transition: 300ms;
     border: 3px solid #0000;
 }
-@media screen and (max-width: 600px) {
-	body {
-		font-size: 8px;
-	}
-    .modeButton {
-        width: 80%;
-        margin-left: 10%;
-		margin-top: 10px;
-    }
-	#text1 {
-		font-size: 5em;
-	}
-	#text2, #text3 {
-		font-size: 2.5em;
-	}
-}
 .modeButton:hover {
     transform: scale(1.1, 1.1);
 }
@@ -145,10 +129,10 @@ body {
 
 .popup {
     position: absolute;
-    left: 15%;
-    top: 15vh;
-    width: 70%;
-    height: 70vh;
+    left: 5vh;
+    top: 5vh;
+    width: calc(100% - 10vh);
+    height: 90vh;
     z-index: 3;
     background-color: #388;
     border-radius: 1em;
@@ -222,6 +206,20 @@ body {
     color: #055;
 }
 
+@media screen and (max-width: 800px) {
+	body {
+		font-size: 8px;
+	}
+    .modeButton {
+        width: 80%;
+        margin-left: 10%;
+		margin-top: 10px;
+    }
+	.popupTitle {
+		font-size: 6em;
+	}
+}
+
 #clickCounter {
     position: absolute;
     width: 100%;
@@ -238,7 +236,7 @@ body {
 	0% {
 		width: 0px;
 		height: 0px;
-        opacity: 0.08;
+        opacity: 0.1;
 	}
 	100% {
     	margin-left: -50vmin;
@@ -262,8 +260,6 @@ body {
 .circle {
 	position: absolute;
     border-radius: 50vh;
-	/*background-color: #ff0;*/
 	animation-name: circle;
 	animation-duration: 1s;
-	
 }
