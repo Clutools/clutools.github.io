@@ -232,21 +232,6 @@ body {
 	-webkit-tap-highlight-color: transparent;
 }
 
-@keyframes circle {
-	0% {
-		width: 0px;
-		height: 0px;
-        opacity: 0.1;
-	}
-	100% {
-    	margin-left: -50vmin;
-        margin-top: -50vmin;
-		width: 100vmin;
-		height: 100vmin;
-        opacity: 0;
-	}
-}
-
 #circles {
 	position: absolute;
 	width: 100%;
@@ -255,11 +240,4 @@ body {
 	right: 0px;
 	z-index: -3;
 	overflow: hidden;
-}
-
-.circle {
-	position: absolute;
-    border-radius: 50vh;
-	animation-name: circle;
-	animation-duration: 1s;
 }

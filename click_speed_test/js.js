@@ -7,26 +7,14 @@ var mode = 0;
 var started;
 var clicks = 0;
 
-// intervals
-var cpsInterval = setInterval(updateCPS, 250), timerInterval;
-
 // multible cp makes cps shower be smoother. Change currentCps to change CPS.
 var currentCps = 0, cps1 = 0, cps2 = 0, cps3 = 0;
 
 // too hard to explain.
 var timeFinish, currentTime, totalTimeInSeconds;
 
-var matchMedia = window.matchMedia("(max-width: 800px)");
-matchMedia.addEventListener("change", function() {
-	if (matchMedia.matches && mode != 0) {
-		document.getElementById("text1").style.fontSize = "5em";
-	} else {
-		document.getElementById("text1").style.fontSize = "10em";
-	}
-});
-
 function modeSwitch(newMode) {
-    let oldMode = mode;
+    const oldMode = mode;
     mode = newMode;
     switch (mode) {
         case 0:
@@ -81,10 +69,16 @@ function modeSwitch(newMode) {
     document.getElementById("mb" + mode).classList.add("buttonBorder");
 }
 
+// when clicked
 document.getElementById("clickCounter").addEventListener('click', function (e) {
-	click()
-	summonCircle(e.clientX, e.clientY);
+	click();
+	newCircle(e.clientX, e.clientY);
 });
+document.getElementById("clickCounter").addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+	click();
+	newCircle(e.clientX, e.clientY);
+}, false);
 
 //count clicks
 function click() {
@@ -119,6 +113,7 @@ function timer() {
     }
 }
 
+var cpsInterval = setInterval(updateCPS, 250), timerInterval;
 function updateCPS() {
     if (mode == 0) {
         document.getElementById("text1").innerHTML = (currentCps + cps1 + cps2 + cps3) + " cps";
@@ -129,51 +124,4 @@ function updateCPS() {
     cps2 = cps1;
     cps1 = currentCps;
     currentCps = 0;
-}
-
-function popup(toOpen, id) {
-    if (toOpen) {
-        document.getElementById(id + "Back").style.display = "block";
-        document.getElementById(id).style.display = "block";
-        if (id == "result") {
-            document.getElementById("resultTitle").innerHTML = (Math.round((clicks / totalTimeInSeconds) * 1000) / 1000)  + " CPS";
-            document.getElementById("resultClicks").innerHTML = clicks + ` <span class="c">CLICK${(clicks != 1) ? "S" : ""} IN</span> ${totalTimeInSeconds} <span class='c'>SECONDS</span>`;
-            modeSwitch(mode); // reset
-            clickProjection();
-        }
-    } else {
-		// close
-        document.getElementById(id + "Back").style.display = "none";
-        document.getElementById(id).style.display = "none";
-    }
-}
-// this makes it so you dont click on ad or close result on accident
-function clickProjection() {
-    document.getElementById("clickProtector").style.display = "block";
-    setTimeout(function() {document.getElementById("clickProtector").style.display = "none";}, 1000);
-}
-
-document.getElementById("clickCounter").addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-	click();
-	summonCircle(e.clientX, e.clientY);
-}, false);
-
-var colors = ["#f00", "#0f0", "#00f", "#ff0", "#fff", "#ff0", "#ff0", "#ff0"], prevColor = "#ff0";
-
-function summonCircle(x, y) {
-	let circle = document.createElement("div");
-	circle.classList.add("circle");
-	circle.style.left = x + "px";
-	circle.style.top = y + "px";
-	if ((Math.random() * 2) < 1) {
-		circle.style.backgroundColor = prevColor;
-	} else {
-		prevColor = colors[Math.floor(Math.random() * 8)];
-		circle.style.backgroundColor = prevColor;
-	}
-	document.getElementById("circles").appendChild(circle);
-	setTimeout(function() {
-		document.getElementById("circles").children[0].remove();
-	}, 1000);
 }

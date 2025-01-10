@@ -10,8 +10,8 @@
 		<link rel="stylesheet" href="css.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
-	<body>
-		<div id="circles"></div>
+	<body onresize="resize()">
+		<canvas id="circles"></canvas>
 		<div id="titleBar">
 			<div id="title">TEST YOUR CPS</div>
 		</div>
@@ -35,6 +35,8 @@
 		</div>
 
 		<div id="clickProtector"></div>
+		<script src="settings.js"></script>
+		<script src="ui.js"></script>
 		<script src="js.js"></script>
 	</body>
 </html>
